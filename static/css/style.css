@@ -204,6 +204,11 @@
   margin-top: 1vh;
 }
 
+/* Model-Viewer CSS */
+#modelViewer1 {
+  transform: scale(0.5); /* Adjust the scale factor as needed */
+}
+
 #modelsDiv{
   text-align: center;
 }
