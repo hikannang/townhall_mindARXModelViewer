@@ -63,7 +63,7 @@
 
     <video id="video" src="./static/video/TestSec.mp4" controls="false" loop="true" webkit-playsinline playsinline 
       width="320" height="180" 
-      style="display: none; position: absolute; top: -1000px; left: -1000px; transform: translate(-50%, -50%);">
+      style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
     </video>
 
     <script>
@@ -115,11 +115,6 @@
             cancelBtn.style.display = 'block';
             video.style.display = 'block';
             UIoverlay.style.display = 'none';
-
-            // Resetting video position to off-screen
-            video.style.top = '-1000px';
-            video.style.left = '-1000px';
-
         }
 
         playPauseBtn.addEventListener('click', function() {
