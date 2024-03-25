@@ -81,6 +81,7 @@
     width: 7vh;
     height: 7vh;
   }
+
 }
 
 /* ############################# */
@@ -171,6 +172,7 @@
     width: 7vh;
     height: 7vh;
   }
+
 }
 
 /* ############################# */
@@ -204,11 +206,6 @@
   margin-top: 1vh;
 }
 
-/* Model-Viewer CSS */
-#modelViewer1 {
-  transform: scale(0.5); /* Adjust the scale factor as needed */
-}
-
 #modelsDiv{
   text-align: center;
 }
@@ -219,4 +216,6 @@
   border: 0.3vh solid gray;
   margin: 1% 1%;
 }
+
+
 /* ############################# */
