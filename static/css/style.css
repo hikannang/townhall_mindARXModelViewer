@@ -13,7 +13,6 @@
     background: transparent;
   }
 
-/*
   #scanning-overlay{
     margin-top: 12vh;
     text-align: center;
@@ -22,8 +21,6 @@
   #scanning-overlay.hidden{
     visibility: hidden;
   }
-
-*/
 
   #scanBoxP{
     /* font-family: Roboto;  */
