@@ -6,6 +6,10 @@
     padding: 0; /* Removes default padding */
   }
 
+  body {
+    overflow-y: auto; /* Allow body to scroll when necessary */
+  }
+
 /* ############################# */
 /* Index.html CSS */
 /* use background colour property when you want to see the physical border of the flex boxes. Useful for testing purposes */
@@ -16,11 +20,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /*
     height: 100vh;
+    width: 100vw;
+    */
 
-    /* Without the lines below, we'll see a black screen at the bottom*/
-    max-height: 100vh; /* Prevent this element from extending beyond the viewport height */
+    min-height: 100vh; /* At least as tall as the viewport */
+    width: 100%; /* Fill the viewport's width */
+
+    /* Without the lines below, we'll see a black screen at the bottom
+    max-height: 100vh; /* Prevent this element from extending beyond the viewport height 
     overflow: hidden; /* Just in case */ 
+
   }
   #scanning-overlay, #text, #iconsDiv {
     margin: 10px;
