@@ -1,5 +1,96 @@
 
-@media screen {
+/* Orientation adjustments */
+@media screen and (orientation: landscape) {
+  html, body {
+    height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    margin: 0; /* Removes default margin */
+    padding: 0; /* Removes default padding */
+  }
+
+/* ############################# */
+/* Index.html CSS */
+/* use background colour property when you want to see the physical border of the flex boxes. Useful for testing purposes */
+
+  #UI-placement {
+    display: flex;
+    /* background-color: dodgerblue; */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    /* Without the lines below, we'll see a black screen at the bottom*/
+    max-height: 100vh; /* Prevent this element from extending beyond the viewport height */
+    overflow: hidden; /* Just in case */ 
+  }
+  #scanning-overlay, #text, #iconsDiv {
+    margin: 10px;
+    /*background-color:aliceblue; */
+
+    /* setting width of elements 
+    CANNOT use flexbox property, flex, as all elememts have their main axis as vertical so flex will actually fix a height and not a width.
+    Same issue if you want to use flex-basis to fix the width. Note that you can use those properties if you further nest these elements into another flexbox. But it's a little
+    redundant and adds unnecessary complexity.*/ 
+    width: 75%;
+  }
+
+  /* required to turn iconsDiv into a flexbox */
+  #iconsDiv {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  #scanning-overlay {
+    display: flex; /* Using flex to center child */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: auto; /* Adjust based on your needs, could be a percentage or vh */
+  }
+  
+  #scanning-overlay.hidden{
+    visibility: hidden;
+  }
+
+  #scanBoxSize {
+    height: 80%;
+  }
+  
+
+  #textP{
+    /* font-family: Roboto;  */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    /* font-size: 4vw;  */
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: 600;
+    color: rgb(225, 216, 216); 
+  }
+
+
+  .btnP{
+    /* font-family: Roboto;  */
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3vw; 
+    font-weight: 600;
+    color: rgb(225, 216, 216);
+    margin-top: 7%;
+  }
+
+  .btnDiv{
+    display: flex; 
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }  
+
+}
+
+
+/* Orientation adjustments */
+@media screen and (orientation: portrait) {
   html, body {
     height: 100%;
     max-height: 100vh;
