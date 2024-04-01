@@ -113,7 +113,7 @@
 
     /* Without the lines below, we'll see a black screen at the bottom*/
     max-height: 100vh; /* Prevent this element from extending beyond the viewport height */
-    overflow: hidden; /* Just in case */ 
+    overflow: scroll; /* Just in case */ 
   }
   #scanning-overlay, #text, #iconsDiv {
     margin: 10px;
