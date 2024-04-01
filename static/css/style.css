@@ -1,3 +1,11 @@
+html, body {
+  height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
+  margin: 0; /* Removes default margin */
+  padding: 0; /* Removes default padding */
+}
+
 /* ############################# */
 /* Index.html CSS */
 /* use background colour property when you want to see the physical border of the flex boxes. Useful for testing purposes */
@@ -16,7 +24,6 @@
   }
   #scanning-overlay, #text, #iconsDiv {
     margin: 10px;
-    text-align: center;
     background-color:aliceblue;
     /* setting width of elements 
     CANNOT use flexbox property, flex, as all elememts have their main axis as vertical so flex will actually fix a height and not a width.
@@ -33,23 +40,26 @@
     justify-content: space-between;
   }
 
-  #scanning-overlay{
-    display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    height: 100%; /* Ensure it has a height to align items within */
+  #scanning-overlay {
+    width: 100%; /* Take full width to properly center children */
+    display: flex; /* Using flex to center child */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: auto; /* Adjust based on your needs, could be a percentage or vh */
   }
-
+  
   #scanning-overlay.hidden{
     visibility: hidden;
   }
 
-  /*
-  #scanBoxSize{
-    width: 80%; 
-    height: 80%; 
+  #scanBoxSize {
+    width: 80%;
+    height: 80%;
+    max-width: 500px; /* Adjust based on your preferred max size */
+    max-height: 500px; /* Adjust to keep the aspect ratio if necessary */
   }
-  */
+  
+
 
   #textP{
     /* font-family: Roboto;  */
@@ -73,9 +83,11 @@
   .btnDiv{
     display: flex; 
     flex-direction: column;
+    justify-content: center;
     align-items: center;
   }
 
+  /*
   #loadModelsButton{
     position: relative;
     z-index: 1;
@@ -86,6 +98,7 @@
     width: 7vh;
     height: 7vh;
   }
+  */
 
 /* ############################# */
 /* Model-Viewer CSS */
