@@ -30,29 +30,30 @@
   }
 
   #scanning-overlay{
-    margin-top: 12vh;
-    text-align: center;
+    display: flex;
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    height: 100%; /* Ensure it has a height to align items within */
   }
 
   #scanning-overlay.hidden{
     visibility: hidden;
   }
 
-  #scanBoxP{
+  #scanBoxSize{
+    width: 80%; 
+    height: 80%; 
+  }
+
+  #textP{
     /* font-family: Roboto;  */
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     /* font-size: 4vw;  */
     font-size: 1.1em;
     font-weight: 600;
-    color: rgb(225, 216, 216);
-    margin-top: -15%;  
+    color: rgb(225, 216, 216); 
   }
 
-  #scanBoxSize{
-    width: 80%; 
-    height: 80%; 
-    margin-left: 10%;
-  }
 
   .btnP{
     /* font-family: Roboto;  */
