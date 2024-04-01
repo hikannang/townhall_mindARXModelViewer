@@ -17,17 +17,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /*
-    height: 100vh;
-    width: 100vw;
-    */
-
     min-height: 100vh; /* At least as tall as the viewport */
     width: 100%; /* Fill the viewport's width */
-
-    /* Without the lines below, we'll see a black screen at the bottom
-  
-    overflow: hidden; /* Just in case */ 
     max-height: 100vh; /* Prevent this element from extending beyond the viewport height */
     overflow-y: auto; /* Allow body to scroll when necessary */
     
