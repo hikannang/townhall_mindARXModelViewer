@@ -19,7 +19,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: auto;
 
     /* Without the lines below, we'll see a black screen at the bottom*/
     max-height: 100vh; /* Prevent this element from extending beyond the viewport height */
