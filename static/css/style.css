@@ -24,7 +24,8 @@ html, body {
   }
   #scanning-overlay, #text, #iconsDiv {
     margin: 10px;
-    background-color:aliceblue;
+    /*background-color:aliceblue; */
+
     /* setting width of elements 
     CANNOT use flexbox property, flex, as all elememts have their main axis as vertical so flex will actually fix a height and not a width.
     Same issue if you want to use flex-basis to fix the width. Note that you can use those properties if you further nest these elements into another flexbox. But it's a little
@@ -34,14 +35,12 @@ html, body {
 
   /* required to turn iconsDiv into a flexbox */
   #iconsDiv {
-    margin-top: 50px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
   }
 
   #scanning-overlay {
-    width: 100%; /* Take full width to properly center children */
     display: flex; /* Using flex to center child */
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
@@ -53,18 +52,15 @@ html, body {
   }
 
   #scanBoxSize {
-    width: 80%;
     height: 80%;
-    max-width: 500px; /* Adjust based on your preferred max size */
-    max-height: 500px; /* Adjust to keep the aspect ratio if necessary */
   }
   
-
 
   #textP{
     /* font-family: Roboto;  */
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
     /* font-size: 4vw;  */
+    text-align: center;
     font-size: 1.1em;
     font-weight: 600;
     color: rgb(225, 216, 216); 
@@ -86,19 +82,6 @@ html, body {
     justify-content: center;
     align-items: center;
   }
-
-  /*
-  #loadModelsButton{
-    position: relative;
-    z-index: 1;
-    width: 7vh;
-    height: 7vh;
-  }
-  #moreInfoButton{
-    width: 7vh;
-    height: 7vh;
-  }
-  */
 
 /* ############################# */
 /* Model-Viewer CSS */
