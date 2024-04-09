@@ -114,7 +114,7 @@
             cancelBtn.style.display = 'block';
             video.style.display = 'block';
             UIoverlay.style.display = 'none';
-            arSystem.stop();
+            arSystem.stop();  //stop ARsystem from selecting new targets when video is laoded.
         }
 
         playPauseBtn.addEventListener('click', function() {
