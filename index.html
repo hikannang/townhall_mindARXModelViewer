@@ -1,5 +1,5 @@
 <html>
-  <head id="head-index">
+  <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0" />
     <meta name="apple-mobile-web-app-capable" content="yes">
     <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
@@ -9,7 +9,10 @@
     <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> 
   </head>
-  <body id="body-index" style="margin: 0; background-color: black;">
+  <body style="margin: 0; background-color: black;">
+    <!-- id="UI-overlay" fixes the issue where the AR content gets cutoff at where the buttons are -->
+    <!-- display flex is to prevent the UI overlay from disappearing when displaying AR content. Can be removed -->
+    <div id="UI-overlay" style="max-height: 100%; max-width: 100%;">
       <div id="UI-placement">
         <!-- scanning box crosshair copied from MindAR example -->
         <div id="scanning-overlay" class="mindar-ui-scanning">
@@ -18,25 +21,25 @@
               <div class="scanline"></div>
             </div>
           </div>
+          <p id="scanBoxP">Scan characters to see AR feature!</p>
         </div>  
-
-        <!-- text below scanning box -->
-        <div id="text">
-          <p id="textP">Scan characters to see AR feature!</p>
-        </div>
-
-        <!-- Icons to Load new models and more info-->
+        
         <div id="iconsDiv">
           <div class="btnDiv">
             <img id="loadModelsButton" src="./static/images/icons/View-Models-button.png" alt="Click to load more Models" onClick="location.href='./models.html'">
             <p class="btnP">Add Models</p>
           </div>
+          <p id="pDistance"></p>
           <div class="btnDiv">
             <img id="moreInfoButton" src="./static/images/icons/More-Info-Button.png" alt="Info Button" onClick="console.log('info button clicked')">
             <p class="btnP">More Info</p>
           </div>
-        </div> 
+          
+        </div>  
+  
       </div>  
+
+    </div>
     
     <a-scene mindar-image="imageTargetSrc: ./static/mind-file/ExpoMarch2024/Expo.mind; uiScanning: #scanning-overlay; filterMinCF:0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded>
 
@@ -103,7 +106,7 @@
         const listener = document.querySelector('[mindar-image-target="targetIndex: 0"]');
         const playPauseBtn = document.getElementById('playPauseBtn');
         const cancelBtn = document.getElementById('cancelBtn');
-        const UIoverlay = document.getElementById('UI-placement');
+        const UIoverlay = document.getElementById('UI-overlay');
 
         // Initially, listen for the target being found
         listener.addEventListener('targetFound', onTargetFound);
@@ -112,9 +115,8 @@
         function onTargetFound() {
             playPauseBtn.style.display = 'block';
             cancelBtn.style.display = 'block';
-            video.style.display = 'block';  
-            UIoverlay.style.display = 'none';  
-            arSystem.stop();  //stop ARsystem from selecting new targets when video is laoded.
+            video.style.display = 'block';
+            UIoverlay.style.display = 'none';
         }
 
         playPauseBtn.addEventListener('click', function() {
