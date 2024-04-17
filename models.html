@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Candal&display=swap">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&display=swap">
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
   </head>
   <body>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.3.0/model-viewer.min.js"></script>
     <div id="headerDiv">
       <img id="arrowLeft" src="./static/images/icons/arrow_left.png" onClick="location.href='./index.html'">
       <h1 id="headerTop">Add AR Models</h1>
@@ -22,31 +22,17 @@
     <div id="cotentDiv">
       <h5 style="font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-weight: 500; font-size: 4vw; margin: 4% 0;">Tap on any characters to load them in AR mode!</h5>
       <div id="modelsDiv">
-        <img style="width: 55%;" id="tapImg1" class="tapImg" src="static/images/cow_tiger.png">
-        <img style="width: 35%;" id="tapImg2" class="tapImg" src="./static/images/dragon.png">
-        <img style="width: 50.5%;" id="tapImg3" class="tapImg" src="./static/images/goat_monkey.png">
-        <img style="width: 39.1%;" id="tapImg4" class="tapImg" src="./static/images/pig.png">
-        <img style="width: 94%;" id="tapImg5" class="tapImg" src="./static/images/dragon_island.png">
+        <img style="width: 55%;" id="tapImg1" class="tapImg" src="static/images/ExpoMarch2024/Chinese_Worker.png">
+        <img style="width: 35%;" id="tapImg2" class="tapImg" src="./static/images/ExpoMarch2024/Construction.png">
       </div>
     </div>
-    <!-- cow and tiger -->
-    <model-viewer style="display: none" ar-placement="floor" disable-tap disable-pan ar ar-modes="scene-viewer quick-look	" reveal="manual" poster="./static/images/cow_tiger.png" id="modelViewer1" ar camera-controls touch-action="none" src="./static/3D-file/glb/cow_tiger.glb" shadow-intensity="1" alt="A 3D model of an astronaut.">
+    
+    <!-- Chinese Worker -->
+    <model-viewer style="display: none" ar-placement="floor" ar ar-modes="scene-viewer quick-look" reveal="manual" poster="static/images/ExpoMarch2024/Chinese_Worker.png" id="modelViewer1" ar camera-controls touch-action="pan-y" src="./static/3D-file/glb/ExpoMarch2024/a_chinese_worker.glb" shadow-intensity="1" alt="A 3D model of an astronaut.">
     </model-viewer>
 
-    <!-- dragon -->
-    <model-viewer style="display: none" ar-placement="floor" disable-tap disable-pan ar ar-modes="scene-viewer quick-look	" reveal="manual" poster="./static/images/dragon.png" id="modelViewer2" ar camera-controls touch-action="none" src="./static/3D-file/glb/dragon.glb" shadow-intensity="1" alt="A 3D model of an astronaut.">   
-    </model-viewer>
-
-    <!-- goat and monkey -->
-    <model-viewer style="display: none" ar-placement="floor" disable-tap disable-pan ar ar-modes="scene-viewer quick-look	" reveal="manual" poster="./static/images/goat_monkey.png" id="modelViewer3" ar camera-controls touch-action="none" src="./static/3D-file/glb/goat_monkey.glb" shadow-intensity="1" alt="A 3D model of an astronaut.">      
-    </model-viewer>
-
-    <!-- pig -->
-    <model-viewer style="display: none" ar-placement="floor" disable-tap disable-pan ar ar-modes="scene-viewer quick-look	" reveal="manual" poster="./static/images/pig.png" id="modelViewer4" ar camera-controls touch-action="none" src="./static/3D-file/glb/pig.glb" shadow-intensity="1" alt="A 3D model of an astronaut.">
-    </model-viewer>
-
-    <!-- Dragon Island -->
-    <model-viewer  style="display: none" ar-placement="floor" disable-tap disable-pan ar ar-modes="scene-viewer quick-look" reveal="manual" poster="./static/images/dragon_island.png" id="modelViewer5" ar camera-controls touch-action="none" src="./static/3D-file/glb/dragon_island.glb" ios-src="./static/3D-file/usdz/Dragon_Island.usdz" shadow-intensity="1" alt="A 3D model of an astronaut.">
+    <!-- Construction Model Placeholder -->
+    <model-viewer  style="display: none" ar-placement="floor" ar ar-modes="scene-viewer quick-look" reveal="manual" poster="./static/images/ExpoMarch2024/Construction.png" id="modelViewer2" ar camera-controls touch-action="none" src="./static/3D-file/glb/ExpoMarch2024/bim_kampus.glb" shadow-intensity="1" alt="A 3D model of an astronaut.">
     </model-viewer>
 
     
@@ -56,7 +42,7 @@
         for (let i = 1; i <= numElements; i++) {
           const tapImg = window['tapImg' + i];
           const modelViewerId = 'modelViewer' + i;
-          // console.log(i)
+          console.log(i)
 
           tapImg.addEventListener("click", () => {
             document.getElementById(modelViewerId).activateAR();
@@ -64,7 +50,7 @@
         }
       }
       // Usage with 10 elements
-      addClickListeners(5);
+      addClickListeners(2);
     </script>
   </body>
 </html> 

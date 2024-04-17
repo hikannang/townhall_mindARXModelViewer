@@ -83,6 +83,7 @@
   }
 }
 
+
 /* ############################# */
 /* Index CSS horizontal */
 @media screen and (orientation: landscape) {
@@ -171,7 +172,9 @@
     width: 7vh;
     height: 7vh;
   }
+
 }
+
 
 /* ############################# */
 /* Model-Viewer CSS */
@@ -214,4 +217,6 @@
   border: 0.3vh solid gray;
   margin: 1% 1%;
 }
+
+
 /* ############################# */

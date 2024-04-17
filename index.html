@@ -1,100 +1,151 @@
 <html>
-  <head>
+  <head id="head-index">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1.0" />
-    <script src="https://aframe.io/releases/1.4.2/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.2/dist/mindar-image-aframe.prod.js"></script>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mind-ar@1.2.5/dist/mindar-image-aframe.prod.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
-    <script src="./aframe-gif-shader-master/dist/aframe-gif-shader.min.js"></script>
+    <!-- <script src="./aframe-gif-shader-master/dist/aframe-gif-shader.min.js"></script> -->
     <link rel="stylesheet" type="text/css" href="./static/css/style.css" />
     <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'> 
   </head>
-  <body style="margin: 0; background-color: black;">
-    <!-- id="UI-overlay" fixes the issue where the AR content gets cutoff at where the buttons are -->
-    <!-- display flex is to prevent the UI overlay from disappearing when displaying AR content. Can be removed -->
-    <div id="UI-overlay" style="max-height: 100%; max-width: 100%;">
-      <div id="UI-placement">
-        <!-- scanning box crosshair copied from MindAR example -->
-        <div id="scanning-overlay" class="mindar-ui-scanning">
-          <div class="scanning">
-            <div class="inner" id="scanBoxSize">
-              <div class="scanline"></div>
+  <body id="body-index" style="margin: 0; background-color: black;">
+       <!-- id="UI-overlay" fixes the issue where the AR content gets cutoff at where the buttons are -->
+      <!-- display flex is to prevent the UI overlay from disappearing when displaying AR content. Can be removed -->
+      <div id="UI-overlay" style="max-height: 100%; max-width: 100%;">
+        <div id="UI-placement">
+          <!-- scanning box crosshair copied from MindAR example -->
+          <div id="scanning-overlay" class="mindar-ui-scanning">
+            <div class="scanning">
+              <div class="inner" id="scanBoxSize">
+                <div class="scanline"></div>
+              </div>
             </div>
-          </div>
-          <p id="scanBoxP">Scan characters to see AR feature!</p>
-        </div>  
-        
-        <div id="iconsDiv">
-          <div class="btnDiv">
-            <img id="loadModelsButton" src="./static/images/icons/View-Models-button.png" alt="Click to load more Models" onClick="location.href='./models.html'">
-            <p class="btnP">Add Models</p>
-          </div>
-          <p id="pDistance"></p>
-          <div class="btnDiv">
-            <img id="moreInfoButton" src="./static/images/icons/More-Info-Button.png" alt="Info Button" onClick="console.log('info button clicked')">
-            <p class="btnP">More Info</p>
+            <p id="scanBoxP">Scan characters to see AR feature!</p>
           </div>
           
-        </div>  
-  
+          <div id="iconsDiv">
+            <div class="btnDiv">
+              <img id="loadModelsButton" src="./static/images/icons/View-Models-button.png" alt="Click to load more Models" onClick="location.href='./models.html'">
+              <p class="btnP">Add Models</p>
+            </div>
+            <p id="pDistance"></p>
+            <div class="btnDiv">
+              <img id="moreInfoButton" src="./static/images/icons/More-Info-Button.png" alt="Info Button" onClick="console.log('info button clicked')">
+              <p class="btnP">More Info</p>
+            </div>          
+          </div>
+        </div>
       </div>
-
-    </div>  
-
-    <a-scene mindar-image="imageTargetSrc: ./static/mind-file/cny.mind; uiScanning: #scanning-overlay; filterMinCF:0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded>
+    
+    <a-scene mindar-image="imageTargetSrc: ./static/mind-file/ExpoMarch2024/Expo.mind; uiScanning: #scanning-overlay; filterMinCF:0.0001; filterBeta: 0.001;" color-space="sRGB" renderer="colorManagement: true, physicallyCorrectLights" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false" embedded>
 
       <a-assets>
-        <a-asset-item id="chinese_dragon_trim" src="./static/3D-file/gltf/chinese_dragon_trim/test1.gltf"></a-asset-item>
-        <img id="pigAnimationGif" src="./static/image-animation/piganimation/piganimation.gif">
-        <img id="dragonAnimationGif" src="./static/image-animation/dragonanimation/dragonanimation.gif">
+        <a-asset-item id="construction" src="./static/3D-file/gltf/low_poly_construction_site/scene.gltf"></a-asset-item>
       </a-assets>
-
-      <a-entity id="example-target" follow-camera-rotation mindar-image-target="targetIndex: 0">   
-        <a-gltf-model src="#chinese_dragon_trim" rotation="0 0 0 " position="0 -0.5 0.1" scale="0.0005 0.0005 0.0005" animation-mixer></a-gltf-model>
+      
+      <!-- GLTF/GLB -->
+      <a-entity mindar-image-target="targetIndex: 0">
+        <a-gltf-model src="#construction" rotation="40 0 0" position="0 0 -1.3" scale="0.25 0.25 0.25"></a-gltf-model>
+        <img id="my-image" src="image.png">
       </a-entity>
 
-      <!-- 1.2 -2.125 -1 Reset position to the aforemention values if not working. -->
-      <a-entity id="example-target" follow-camera-rotation mindar-image-target="targetIndex: 2" geometry="primitive:plane;width:1;height:1;" position="0 0 0" material="shader:gif;src:#pigAnimationGif;transparent:true;color:#FFF;"></a-entity>
-
-      <a-entity id="example-target" follow-camera-rotation mindar-image-target="targetIndex: 3" geometry="primitive:plane;width:1.5;height:2.5;" position="0 0 0" material="shader:gif;src:#dragonAnimationGif;transparent:true;color:#FFF;"></a-entity>
+      <!-- Videos -->
+      <a-entity mindar-image-target="targetIndex: 1">
+      </a-entity>
 
       <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: ${customFields.libVersion}; objects: .clickable"></a-camera>
 
-    </a-scene>
+    </a-scene>  
+
+    <!-- Control Buttons -->
+    <button id="playPauseBtn" style="position: absolute; top: 20px; left: 20px; display: none;">Play</button>
+    <button id="cancelBtn" style="position: absolute; top: 20px; right: 20px; display: none;">Cancel</button>
+
+    <video class="videos" id="video" src="./static/video/TestSec.mp4" controls loop="true" webkit-playsinline playsinline 
+      width="320" height="180"
+      style="display: none; 
+      position: absolute; 
+      top: 50%; 
+      left: 50%; 
+      transform: translate(-50%, -50%);">
+    </video>
+
     <script>
+
       document.addEventListener("DOMContentLoaded", function () {
+        // Check Camera location
+        const cameraEl = document.querySelector('a-camera'); // Get the camera entity
+        const cameraPosition = cameraEl.object3D.position; // Get the position vector of the camera
+        console.log("Camera position from start of the scene:", cameraPosition);
+
+
         const sceneEl = document.querySelector("a-scene");
         let arSystem;
+
+        // Listen for the loaded event of the A-Frame scene
         sceneEl.addEventListener("loaded", function () {
-          arSystem = sceneEl.systems["mindar-image-system"];
+            // Access the MindAR system
+            arSystem = sceneEl.systems["mindar-image-system"];
         });
-        1;
 
-        const exampleTarget = document.querySelector("#example-target");
+        // Function to stop tracking
+        function stopTracking() {
+            if (arSystem) {
+                // Call the stop method of the AR system
+                arSystem.stop();
+            }
+        }
 
-        const startButton = document.querySelector("#example-start-button");
-        const stopButton = document.querySelector("#example-stop-button");
-        const pauseButton = document.querySelector("#example-pause-button");
-        const pauseKeepVideoButton = document.querySelector("#example-pause-keep-video-button");
-        const unpauseButton = document.querySelector("#example-unpause-button");
+        // Function to restart tracking
+        function restartTracking() {
+            if (arSystem) {
+                // Call the start method of the AR system
+                arSystem.start();
+            }
+        }
 
-        // arReady event triggered when ready
-        sceneEl.addEventListener("arReady", (event) => {
-          // console.log("MindAR is ready")
+        const video = document.getElementById('video');
+        const listener = document.querySelector('[mindar-image-target="targetIndex: 1"]');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const cancelBtn = document.getElementById('cancelBtn');
+        const UIoverlay = document.getElementById('UI-placement');
+
+        // Initially, listen for the target being found
+        listener.addEventListener('targetFound', onTargetFound);
+
+         // Function to handle target found
+        function onTargetFound() {
+            playPauseBtn.style.display = 'block';
+            cancelBtn.style.display = 'block';
+            video.style.display = 'block';
+            UIoverlay.style.display = 'none';
+            arSystem.stop(); //stopping AR system from scanning multiple targets once video is loaded.
+        }
+
+        playPauseBtn.addEventListener('click', function() {
+          if (video.paused) {
+            video.play();
+            playPauseBtn.textContent = 'Pause';
+          } else {
+            video.pause();
+            playPauseBtn.textContent = 'Play';
+          }
         });
-        // arError event triggered when something went wrong. Mostly browser compatbility issue
-        sceneEl.addEventListener("arError", (event) => {
-          // console.log("MindAR failed to start")
+
+        // Handle the cancel action
+        cancelBtn.addEventListener('click', function() {
+            // Hide the video and buttons
+            playPauseBtn.style.display = 'none';
+            cancelBtn.style.display = 'none';
+            video.pause();
+            playPauseBtn.textContent = 'Play';
+            video.style.display = 'none';
+            UIoverlay.style.display = 'flex';
+            arSystem.start();
         });
-        // detect target found
-        exampleTarget.addEventListener("targetFound", (event) => {
-          console.log("target found");
-          document.getElementById("vid").play();
-        });
-        // detect target lost
-        exampleTarget.addEventListener("targetLost", (event) => {
-          console.log("target lost");
-          document.getElementById("vid").pause();
-        });
+        
+      });
 
         //Camera Tracking
         AFRAME.registerComponent('follow-camera-rotation', {
@@ -114,14 +165,10 @@
           }
         });  
 
-
       screen.orientation.addEventListener("change", () => {
         // window.location.reload();
         arSystem.stop();
         arSystem.start();
-      });
-
-
       });
     </script>
   </body>
